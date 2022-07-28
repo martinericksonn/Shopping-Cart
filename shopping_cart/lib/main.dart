@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:shopping_cart/src/model/data_class.dart';
+
+import 'src/screen/home_page.dart';
 
 void main() {
   runApp(const MyApp());
