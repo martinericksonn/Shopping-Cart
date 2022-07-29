@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,33 +16,31 @@ class SecondPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFFfefcff),
-      body: Container(
+      body: SizedBox(
           width: double.maxFinite,
           height: double.maxFinite,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Flexible(
-                child: Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Consumer<DataClass>(builder: (context, data, child) {
-                        return Text(
-                          '${data.x}',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20,
-                          ),
-                        );
-                      }),
-                      const Text(
-                        "-- Total",
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Consumer<DataClass>(builder: (context, data, child) {
+                      return Text(
+                        '${data.x}',
                         style: TextStyle(
-                            fontSize: 40, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      );
+                    }),
+                    const Text(
+                      "-- Total",
+                      style:
+                          TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
+                    ),
+                  ],
                 ),
               ),
               SizedBox(
@@ -89,6 +89,12 @@ class SecondPage extends StatelessWidget {
                     Flexible(
                       child: Container(
                         padding: const EdgeInsets.only(left: 20, right: 20),
+                        height: 60,
+                        width: double.maxFinite,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                          borderRadius: BorderRadius.circular(10),
+                        ),
                         child: GestureDetector(
                           onTap: () {
                             Get.to(() => HomePage(),
@@ -107,12 +113,6 @@ class SecondPage extends StatelessWidget {
                               ),
                             ],
                           ),
-                        ),
-                        height: 60,
-                        width: double.maxFinite,
-                        decoration: BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.circular(10),
                         ),
                       ),
                     )
